@@ -28,6 +28,15 @@ body {
   background-color: '#fff';
 }
 
+.link-text {
+  text-decoration: none; /* Remove default underline */
+}
+
+.link-text:focus,
+.link-text:hover {
+  text-decoration: underline; /* Add underline on hover or focus */
+}
+
 @-webkit-keyframes click_animation {
   from {
     -webkit-transform: scale(1);

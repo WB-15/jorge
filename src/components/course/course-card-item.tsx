@@ -43,7 +43,7 @@ const CourseCardItem: FC<Props> = ({ item }) => {
             mb: 2,
           }}
         >
-          <Image src={item.cover} width={760} height={760} alt={'Course ' + item.id} />
+          <Image src={item.cover} width={500} height={760} alt={'Books ' + item.id} />
         </Box>
         <Box sx={{ mb: 2 }}>
           <Typography component="h2" variant="h5" sx={{ mb: 2, height: 56, overflow: 'hidden', fontSize: '1.2rem' }}>
@@ -61,7 +61,7 @@ const CourseCardItem: FC<Props> = ({ item }) => {
             <Typography variant="h5" color="primary.main">
               {'$' + item.price}
             </Typography>
-            <Typography variant="h6">/ course</Typography>
+            <Typography variant="h6">/ {item.level}</Typography>
           </Box>
           <IconButton
             color="primary"

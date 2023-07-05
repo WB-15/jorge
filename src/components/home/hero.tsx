@@ -2,15 +2,17 @@ import React, { FC } from 'react'
 import Image from 'next/image'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
+import Link from '@mui/material/Link'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import { Link as ScrollLink } from 'react-scroll'
 import { StyledButton } from '@/components/styled-button'
-import PlayArrowIcon from '@mui/icons-material/PlayArrow'
+import DownloadOutlinedIcon from '@mui/icons-material/DownloadOutlined'
 
 interface Exp {
   label: string
   value: string
+  link: string
 }
 interface ExpItemProps {
   item: Exp
@@ -20,14 +22,27 @@ const exps: Array<Exp> = [
   {
     label: 'Android App',
     value: '/images/badges/googleplay.svg',
+    link: 'https://play.google.com/store/apps/details?id=com.jccorporation.bibliaparalela',
   },
   {
     label: 'iOS / Apple App',
     value: '/images/badges/appstore.svg',
+    link: 'https://apps.apple.com/us/app/parallel-bible-books/id1641349485',
   },
   {
     label: 'Google Play Books',
     value: '/images/badges/googleplaybooks.png',
+    link: 'https://play.google.com/store/search?q=Jorge%20Carrasco%20Bible&c=books&hl=es',
+  },
+  {
+    label: 'Barnes & Noble Books',
+    value: '/images/badges/barnes.svg',
+    link: 'https://www.barnesandnoble.com/s/Jorge%20Carrasco%20Parallel%20Bible/_/N-w',
+  },
+  {
+    label: 'iBooks Store',
+    value: '/images/badges/ibooks.svg',
+    link: 'http://books.apple.com/us/book/id1596561780',
   },
 ]
 
@@ -148,7 +163,7 @@ const HomeHero: FC = () => {
                   </StyledButton>
                 </ScrollLink>
                 <ScrollLink to="video-section" spy={true} smooth={true} offset={0} duration={350}>
-                  <StyledButton color="primary" size="large" variant="outlined" startIcon={<PlayArrowIcon />}>
+                  <StyledButton color="primary" size="large" variant="outlined" startIcon={<DownloadOutlinedIcon />}>
                     Free Download App
                   </StyledButton>
                 </ScrollLink>
@@ -177,7 +192,7 @@ const HomeHero: FC = () => {
                 sx={{
                   boxShadow: 1,
                   borderRadius: '50%',
-                  width: 44,
+                  width: 35,
                   height: 44,
                   display: 'flex',
                   alignItems: 'center',
@@ -201,17 +216,29 @@ const HomeHero: FC = () => {
               </Box>
             </Box>
             <Box sx={{ lineHeight: 0 }}>
-              <Image src="/images/home-hero.jpg" width={775} height={787} alt="Hero img" />
+              <Image src="/images/home-face.png" width={775} height={787} alt="Hero img" />
             </Box>
           </Grid>
         </Grid>
 
         {/* Experience */}
-        <Box sx={{ boxShadow: 3, py: 4, px: 7, borderRadius: 4, border: '5px dashed', borderColor: '#127C71' }}>
-          <Grid container spacing={2}>
+        <Box
+          sx={{
+            boxShadow: 3,
+            py: 4,
+            px: 7,
+            borderRadius: 4,
+            border: '5px dashed',
+            borderColor: '#127C71',
+            marginTop: '30px',
+          }}
+        >
+          <Grid container spacing={2} columns={15}>
             {exps.map((item) => (
-              <Grid key={item.value} item xs={12} md={4}>
-                <ExpItem item={item} />
+              <Grid key={item.value} item xs={15} md={3}>
+                <Link href={`${item.link}`} target="_blank">
+                  <ExpItem item={item} />
+                </Link>
               </Grid>
             ))}
           </Grid>

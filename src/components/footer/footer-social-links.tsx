@@ -6,32 +6,32 @@ import { SocialLink } from '@/interfaces/social-link'
 export const socialLinks: SocialLink[] = [
   {
     name: 'Facebook',
-    link: '#',
+    link: 'https://www.facebook.com/profile.php?id=100088099647632',
     icon: '/images/icons/facebook.png',
   },
   {
     name: 'Instagram',
-    link: '#',
+    link: 'https://www.instagram.com/jorgecarrascobiblia/',
     icon: '/images/icons/instagram.png',
   },
   {
     name: 'TikTok',
-    link: '#',
+    link: 'https://www.tiktok.com/@user1649917463527',
     icon: '/images/icons/tiktok.png',
   },
   {
     name: 'YouTube',
-    link: '#',
+    link: 'https://www.youtube.com/channel/UCS-vGpQFfIgWrlg8TuGJZ7g',
     icon: '/images/icons/youtube.png',
   },
   {
     name: 'Twitter',
-    link: '#',
+    link: 'https://twitter.com/jcgeneralcontr1',
     icon: '/images/icons/twitter.png',
   },
   {
     name: 'LinkedIn',
-    link: '#',
+    link: 'https://www.linkedin.com/in/jorge-carrasco-31044bb8/',
     icon: '/images/icons/linkedin.png',
   },
 ]

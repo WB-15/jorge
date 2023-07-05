@@ -7,9 +7,8 @@ import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
-// import CircularProgress from '@mui/material/CircularProgress'
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress'
-import { data } from './feature.data'
+// import { data } from './feature.data'
 import TouchAppOutlinedIcon from '@mui/icons-material/TouchAppOutlined'
 import Image from 'next/image'
 import AndroidIcon from '@mui/icons-material/Android'
@@ -89,42 +88,6 @@ const HomeFeature: FC = () => {
                   ref={videoEl}
                 />
               </div>
-              {/* <Box
-                sx={{
-                  position: 'absolute',
-                  top: -45,
-                  right: { xs: 0, md: -36 },
-                  boxShadow: 2,
-                  borderRadius: 1,
-                  px: 2.2,
-                  py: 1.4,
-                  zIndex: 1,
-                  backgroundColor: 'background.paper',
-                  width: 160,
-                }}
-              >
-                <Typography variant="h5" sx={{ mb: 1 }} textAlign={'center'}>
-                  Android & iOS
-                </Typography>
-                <Box sx={{ mb: 1 }}>
-                  <Typography variant="subtitle1" color="text.secondary">
-                    UI/UI
-                  </Typography>
-                  <BorderLinearProgress variant="determinate" color="inherit" value={65} order={1} />
-                </Box>
-                <Box sx={{ mb: 1 }}>
-                  <Typography variant="subtitle1" color="text.secondary">
-                    Android
-                  </Typography>
-                  <BorderLinearProgress variant="determinate" color="inherit" value={40} order={2} />
-                </Box>
-                <Box sx={{ mb: 1 }}>
-                  <Typography variant="subtitle1" color="text.secondary">
-                    iOS
-                  </Typography>
-                  <BorderLinearProgress variant="determinate" color="inherit" value={50} order={3} />
-                </Box>
-              </Box> */}
               <Box
                 sx={{
                   position: 'absolute',
@@ -162,24 +125,13 @@ const HomeFeature: FC = () => {
                       flexDirection: 'column',
                     }}
                   >
-                    {/* <Typography variant="h4" sx={{ color: '#32dc88' }}>
-                      75%
-                    </Typography>
-                    <CircularProgress
-                      sx={{ position: 'absolute', color: 'divider' }}
-                      thickness={2}
-                      variant="determinate"
-                      value={85}
-                      size={85}
+                    <Image
+                      src={'/images/face.png'}
+                      style={{ borderRadius: '50%' }}
+                      width={'100%'}
+                      height={'100%'}
+                      alt={'Jorge Carrasco'}
                     />
-                    <CircularProgress
-                      disableShrink
-                      thickness={2}
-                      variant="indeterminate"
-                      value={75}
-                      size={85}
-                      sx={{ transform: 'rotate(96deg) !important', color: '#32dc88', position: 'absolute' }}
-                    /> */}
                   </Box>
                 </Box>
               </Box>
@@ -267,13 +219,18 @@ const HomeFeature: FC = () => {
                       </Link>
                     </Typography>
                   </Box>
-                  <Image alt="Android Scan" src="/images/QR_Code/Android_QR.jpg" width={200} height={200}></Image>
+                  <Image
+                    alt="Android Scan"
+                    src="/images/QR_Code/Android_QR.jpg"
+                    width={200}
+                    height={200}
+                    style={{ borderRadius: '20px' }}
+                  ></Image>
                   <Typography textAlign={'center'} display={'flex'} justifyContent={'center'}>
                     Scan To Download
                   </Typography>
                 </Grid>
                 <Grid container item xs={6} md={6} style={{ display: 'flex', justifyContent: 'center' }}>
-                  {/* <Typography>22 Languages</Typography> */}
                   <Image alt="Android Scan" src="/images/Phone/android.jpg" width={130} height={100}></Image>
                 </Grid>
               </Grid>
@@ -312,7 +269,13 @@ const HomeFeature: FC = () => {
                       </Link>
                     </Typography>
                   </Box>
-                  <Image alt="Android Scan" src="/images/QR_Code/Android_QR.jpg" width={200} height={200}></Image>
+                  <Image
+                    alt="Android Scan"
+                    src="/images/QR_Code/Apple_QR.jpg"
+                    width={200}
+                    height={200}
+                    style={{ borderRadius: '20px' }}
+                  ></Image>
                   <Typography textAlign={'center'} display={'flex'} justifyContent={'center'}>
                     Scan To Download
                   </Typography>
@@ -322,67 +285,6 @@ const HomeFeature: FC = () => {
                   <Image alt="Android Scan" src="/images/Phone/ios.jpg" width={130} height={100}></Image>
                 </Grid>
               </Grid>
-              {/* {data.map(({ title, description, icon }, index) => (
-                <Grid key={String(index)} item xs={12} md={6}>
-                  <Box sx={{ px: 2, py: 1.5, boxShadow: 1, borderRadius: 4, display: 'flex', alignItems: 'center' }}>
-                    <Box
-                      sx={{
-                        mr: 1,
-                        backgroundColor: 'primary.main',
-                        borderRadius: '50%',
-                        height: 36,
-                        width: 36,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: 'primary.contrastText',
-                        '& svg': {
-                          fontSize: 20,
-                        },
-                      }}
-                    >
-                      {icon}
-                    </Box>
-                    <Box sx={{ display: 'flex', flex: 1, flexDirection: 'column' }}>
-                      <Typography variant="h6" sx={{ fontSize: '1rem', mb: 1, color: 'secondary.main' }}>
-                        {title}
-                      </Typography>
-                      <Typography
-                        sx={{
-                          display: 'flex',
-                          lineHeight: 1.5,
-                          fontWeight: 'bold',
-                          color: '#000000',
-                          alignItems: 'center',
-                        }}
-                        variant="subtitle1"
-                      >
-                        <TouchAppOutlinedIcon />
-                        <Link href="#" variant="body2">
-                          {description}
-                        </Link>
-                      </Typography>
-                    </Box>
-                    <Box sx={{ display: 'flex', flex: 1, flexDirection: 'column' }}>
-                      <Grid container>
-                        <Grid item xs={12} md={6}>
-                          <Typography>Scan To Download</Typography>
-                          <Image
-                            alt="Android Scan"
-                            src="/images/QR_Code/Android_QR.jpg"
-                            width={200}
-                            height={200}
-                          ></Image>
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                          <Typography>22 Languages</Typography>
-                          <Image alt="Android Scan" src="/images/Phone/android.jpg" width={100} height={200}></Image>
-                        </Grid>
-                      </Grid>
-                    </Box>
-                  </Box>
-                </Grid>
-              ))} */}
             </Grid>
           </Grid>
         </Grid>
