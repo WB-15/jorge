@@ -48,7 +48,7 @@ const HomeContact: FC = () => {
               <div style={{ display: 'flex', alignItems: 'center', paddingBottom: '15px' }}>
                 <LanguageOutlinedIcon style={{ fontSize: '25', marginRight: '30px' }} />
                 <Typography color={'grey'} fontSize={'1.1rem'}>
-                  dfadsfadf
+                  jorgecarrascobible.com
                 </Typography>
               </div>
             </Box>

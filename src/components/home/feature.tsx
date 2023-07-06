@@ -57,7 +57,7 @@ const HomeFeature: FC = () => {
   }, [])
 
   return (
-    <Box id="feature" sx={{ py: { xs: 4, md: 5 }, backgroundColor: 'background.paper' }}>
+    <Box id="download" sx={{ py: { xs: 4, md: 5 }, backgroundColor: 'background.paper' }}>
       <Container>
         <Grid container spacing={3}>
           <Grid item xs={12} md={3} alignItems={'center'} justifyContent={'center'}>
@@ -231,7 +231,13 @@ const HomeFeature: FC = () => {
                   </Typography>
                 </Grid>
                 <Grid container item xs={6} md={6} style={{ display: 'flex', justifyContent: 'center' }}>
-                  <Image alt="Android Scan" src="/images/Phone/android.jpg" width={130} height={100}></Image>
+                  <Image
+                    alt="Android Scan"
+                    src="/images/Phone/android.png"
+                    width={130}
+                    height={100}
+                    style={{ borderRadius: '15px', border: '5px solid #000', borderStyle: 'solid', borderWidth: '5px' }}
+                  ></Image>
                 </Grid>
               </Grid>
               <Grid container item xs={12} md={6} style={{ marginBottom: '15px' }}>
@@ -282,7 +288,13 @@ const HomeFeature: FC = () => {
                 </Grid>
                 <Grid container item xs={6} md={6} style={{ display: 'flex', justifyContent: 'center' }}>
                   {/* <Typography>22 Languages</Typography> */}
-                  <Image alt="Android Scan" src="/images/Phone/ios.jpg" width={130} height={100}></Image>
+                  <Image
+                    alt="Android Scan"
+                    src="/images/Phone/ios.png"
+                    width={130}
+                    height={100}
+                    style={{ borderRadius: '15px', border: '5px solid #000', borderStyle: 'solid', borderWidth: '5px' }}
+                  ></Image>
                 </Grid>
               </Grid>
             </Grid>

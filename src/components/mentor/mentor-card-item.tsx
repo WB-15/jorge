@@ -26,6 +26,7 @@ const MentorCardItem: FC<Props> = ({ item }) => {
           '&:hover': {
             boxShadow: 2,
           },
+          height: 370,
         }}
       >
         <Box

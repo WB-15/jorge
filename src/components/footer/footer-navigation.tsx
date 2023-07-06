@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid'
 import type { Navigation } from '@/interfaces/navigation'
 import { navigations as headerNavigations } from '@/components/navigation/navigation.data'
 import { FooterSectionTitle } from '@/components/footer'
+import { Link as ScrollLink } from 'react-scroll'
 
 const courseMenu: Array<Navigation> = [
   {
@@ -80,23 +81,36 @@ const FooterNavigation: FC = () => {
       <Grid item xs={12} md={4}>
         <FooterSectionTitle title="Menu" />
         {pageMenu.map(({ label, path }, index) => (
-          // <NavigationItem key={index + path} label={label} path={path} />
-          <Link key={index} href={`/#${path}`} passHref>
-            <a className="link-text" style={{ color: 'inherit', display: 'block', marginBottom: '8px' }}>
-              {label}
-            </a>
-          </Link>
+          <ScrollLink
+            className="link-text"
+            key={index}
+            to={path}
+            spy={true}
+            smooth={true}
+            offset={0}
+            duration={350}
+            style={{ color: 'inherit', display: 'block', marginBottom: '8px', cursor: 'pointer' }}
+          >
+            {label}
+          </ScrollLink>
         ))}
       </Grid>
       <Grid item xs={12} md={4}>
         <FooterSectionTitle title="About" />
         {companyMenu.map(({ label, path }, index) => (
           // <NavigationItem key={index + path} label={label} path={path} />
-          <Link key={index} href={`/#${path}`} passHref>
-            <a className="link-text" style={{ color: 'inherit', display: 'block', marginBottom: '8px' }}>
-              {label}
-            </a>
-          </Link>
+          <ScrollLink
+            className="link-text"
+            key={index}
+            to={path}
+            spy={true}
+            smooth={true}
+            offset={0}
+            duration={350}
+            style={{ color: 'inherit', display: 'block', marginBottom: '8px', cursor: 'pointer' }}
+          >
+            {label}
+          </ScrollLink>
         ))}
       </Grid>
     </Grid>

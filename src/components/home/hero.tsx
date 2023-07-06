@@ -21,12 +21,12 @@ interface ExpItemProps {
 const exps: Array<Exp> = [
   {
     label: 'Android App',
-    value: '/images/badges/googleplay.svg',
+    value: '/images/badges/android.png',
     link: 'https://play.google.com/store/apps/details?id=com.jccorporation.bibliaparalela',
   },
   {
     label: 'iOS / Apple App',
-    value: '/images/badges/appstore.svg',
+    value: '/images/badges/apple.png',
     link: 'https://apps.apple.com/us/app/parallel-bible-books/id1641349485',
   },
   {
@@ -36,12 +36,12 @@ const exps: Array<Exp> = [
   },
   {
     label: 'Barnes & Noble Books',
-    value: '/images/badges/barnes.svg',
+    value: '/images/badges/barnes.png',
     link: 'https://www.barnesandnoble.com/s/Jorge%20Carrasco%20Parallel%20Bible/_/N-w',
   },
   {
     label: 'iBooks Store',
-    value: '/images/badges/ibooks.svg',
+    value: '/images/badges/ibooks.png',
     link: 'http://books.apple.com/us/book/id1596561780',
   },
 ]
@@ -50,7 +50,7 @@ const ExpItem: FC<ExpItemProps> = ({ item }) => {
   const { value, label } = item
   return (
     <Box sx={{ textAlign: 'center', mb: { xs: 1, md: 0, boxShadow: 3 } }}>
-      <Image src={value} width={200} height={120} alt={label} />
+      <Image src={value} width={250} height={85} alt={label} />
       <Typography color="text.secondary" variant="h5">
         {label}
       </Typography>
@@ -157,12 +157,12 @@ const HomeHero: FC = () => {
                 </Typography>
               </Box>
               <Box sx={{ '& button': { mr: 2 } }} justifyContent={'space-between'} style={{ marginBottom: '10px' }}>
-                <ScrollLink to="popular-course" spy={true} smooth={true} offset={0} duration={350}>
+                <ScrollLink to="book-collection" spy={true} smooth={true} offset={0} duration={350}>
                   <StyledButton color="primary" size="large" variant="contained">
                     Get Started
                   </StyledButton>
                 </ScrollLink>
-                <ScrollLink to="video-section" spy={true} smooth={true} offset={0} duration={350}>
+                <ScrollLink to="download" spy={true} smooth={true} offset={0} duration={350}>
                   <StyledButton color="primary" size="large" variant="outlined" startIcon={<DownloadOutlinedIcon />}>
                     Free Download App
                   </StyledButton>
@@ -230,10 +230,10 @@ const HomeHero: FC = () => {
             borderRadius: 4,
             border: '5px dashed',
             borderColor: '#127C71',
-            marginTop: '30px',
+            marginTop: '50px',
           }}
         >
-          <Grid container spacing={2} columns={15}>
+          <Grid container spacing={2} columns={15} padding={'20px 0px 20px 0px'}>
             {exps.map((item) => (
               <Grid key={item.value} item xs={15} md={3}>
                 <Link href={`${item.link}`} target="_blank">
@@ -241,6 +241,16 @@ const HomeHero: FC = () => {
                 </Link>
               </Grid>
             ))}
+            {/* <Grid item xs={15} md={3}>
+              <Link href={`${exps[0].link}`} target="_blank">
+                <Box sx={{ textAlign: 'center', mb: { xs: 1, md: 0, boxShadow: 3 } }}>
+                  <Image src={exps[0].value} width={150} height={70} alt={exps[0].label} />
+                  <Typography color="text.secondary" variant="h5">
+                    {exps[0].label}
+                  </Typography>
+                </Box>
+              </Link>
+            </Grid> */}
           </Grid>
         </Box>
       </Container>
