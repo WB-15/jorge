@@ -8,6 +8,8 @@ import Typography from '@mui/material/Typography'
 import { Link as ScrollLink } from 'react-scroll'
 import { StyledButton } from '@/components/styled-button'
 import DownloadOutlinedIcon from '@mui/icons-material/DownloadOutlined'
+import AndroidIcon from '@mui/icons-material/Android'
+import AppleIcon from '@mui/icons-material/Apple'
 
 interface Exp {
   label: string
@@ -157,16 +159,25 @@ const HomeHero: FC = () => {
                 </Typography>
               </Box>
               <Box sx={{ '& button': { mr: 2 } }} justifyContent={'space-between'} style={{ marginBottom: '10px' }}>
-                <ScrollLink to="book-collection" spy={true} smooth={true} offset={0} duration={350}>
+                {/* <ScrollLink to="book-collection" spy={true} smooth={true} offset={0} duration={350}>
                   <StyledButton color="primary" size="large" variant="contained">
                     Get Started
                   </StyledButton>
-                </ScrollLink>
-                <ScrollLink to="download" spy={true} smooth={true} offset={0} duration={350}>
-                  <StyledButton color="primary" size="large" variant="outlined" startIcon={<DownloadOutlinedIcon />}>
-                    Free Download App
+                </ScrollLink> */}
+                {/* <ScrollLink to="download" spy={true} smooth={true} offset={0} duration={350}> */}
+                <Link href={`${exps[0].link}`} target="_blank">
+                  <StyledButton color="primary" size="large" variant="outlined" startIcon={<AndroidIcon />}>
+                    Download Android App
                   </StyledButton>
-                </ScrollLink>
+                </Link>
+                {/* </ScrollLink> */}
+                {/* <ScrollLink to="download" spy={true} smooth={true} offset={0} duration={350}> */}
+                <Link href={`${exps[1].link}`} target="_blank">
+                  <StyledButton color="primary" size="large" variant="outlined" startIcon={<AppleIcon />}>
+                    Download iOS App
+                  </StyledButton>
+                </Link>
+                {/* </ScrollLink> */}
               </Box>
             </Box>
           </Grid>
@@ -228,7 +239,8 @@ const HomeHero: FC = () => {
             py: 4,
             px: 7,
             borderRadius: 4,
-            border: '5px dashed',
+            borderWidth: '4px',
+            borderStyle: 'dashed',
             borderColor: '#127C71',
             marginTop: '50px',
           }}
