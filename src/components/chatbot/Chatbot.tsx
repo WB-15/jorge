@@ -30,7 +30,7 @@ const Chatbot: FC = () => {
   const [showMsg, setShowMsg] = useState(false)
   const [windowFlag, setWindonwFlag] = useState(false)
 
-  const showChatWindow = () => {
+  const showChatWindow = (): void => {
     num++
     if (num == 1) {
       setShowMsg(!showMsg)
@@ -42,9 +42,7 @@ const Chatbot: FC = () => {
   const yourNodeRef = useRef(null)
 
   useEffect(() => {
-    let timer: NodeJS.Timeout
-
-    timer = setTimeout(() => {
+    const timer = setTimeout(() => {
       setShowMsg(true)
     }, 2000) // Adjust the delay (in milliseconds) as needed
 

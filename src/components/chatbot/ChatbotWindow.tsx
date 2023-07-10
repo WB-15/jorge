@@ -15,19 +15,19 @@ const arr = [
 ]
 let chatNum = 0
 
-function ChatbotWindow() {
+const ChatbotWindow: FC = () => {
   const [chat, setChat] = useState(arr)
   const [userMsg, setUserMsg] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const scrollToBottom = () => {
-    var nestedElement = document.getElementById('chatBox')
+  const scrollToBottom = (): void => {
+    const nestedElement = document.getElementById('chatBox')
     if (nestedElement) {
       nestedElement.scrollTo(0, nestedElement.scrollHeight)
     }
   }
 
-  const handleKeyPress = async (event: any) => {
+  const handleKeyPress = async (event: any): Promise<void> => {
     if (event.key === 'Enter') {
       setLoading(true)
       chatNum++
@@ -55,7 +55,7 @@ function ChatbotWindow() {
     }
   }
 
-  const handleInputChange = (e: any) => {
+  const handleInputChange = (e: any): void => {
     setUserMsg(e.target.value)
   }
 
