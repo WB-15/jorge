@@ -96,63 +96,10 @@ const Chatbot: FC = () => {
               justifyContent: 'end',
             }}
           >
-            {state !== 'exited' && <Typography fontSize={'1.9rem'}>👋 Hi!</Typography>}
+            {state !== 'exited' && <Typography fontSize={'1.8rem'}>👋 Hi!</Typography>}
           </div>
         )}
       </Transition>
-      {/* <Grid container style={{ width: '100%', height: '100%', zIndex: '-1' }}>
-        <Grid container item xs={0} md={9} />
-        <Grid container item xs={12} md={3} style={{ width: '100%', height: '100%' }} direction={'column'}>
-          <Grid container item xs={0} md={3} />
-          <Grid container item xs={12} md={9} direction={'column'} style={{ width: '100%', height: '100%' }}>
-            <Grid item xs={10} md={10} style={{ width: '100%', height: '100%' }}>
-              <Transition in={showBox} timeout={duration} nodeRef={yourNodeRef}>
-                {(state) => (
-                  <div style={{ ...defaultStyle, ...transitionStyles[state], width: '100%', height: '100%' }}>
-                    {state !== 'exited' && (
-                      <Box style={{ width: '100%', height: '100%', padding: '10px' }}>
-                        <ChatbotWindow />
-                      </Box>
-                    )}
-                  </div>
-                )}
-              </Transition>
-              <Transition in={showMsg} timeout={duration} nodeRef={yourNodeRef}>
-                {(state) => (
-                  <div
-                    style={{
-                      ...defaultStyle,
-                      ...transitionStyles[state],
-                      marginRight: '25px',
-                      marginTop: '-25px',
-                      display: 'flex',
-                      alignItems: 'start',
-                      justifyContent: 'end',
-                    }}
-                  >
-                    {state !== 'exited' && <Typography fontSize={'1.9rem'}>👋 Hi!</Typography>}
-                  </div>
-                )}
-              </Transition>
-            </Grid>
-            <Grid item xs={2} md={2} style={{ width: '100%', height: '100%' }}>
-              <div
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  // marginLeft: '-30px',
-                  display: 'flex',
-                  alignItems: 'start',
-                  justifyContent: 'end',
-                }}
-              >
-                <Image src={'/images/chatbot.svg'} width={'90px'} height={'90px'} alt={'ChatBot'} onClick={toggleBox} />
-              </div>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Grid> */}
-      {/* </Box> */}
     </>
   )
 }

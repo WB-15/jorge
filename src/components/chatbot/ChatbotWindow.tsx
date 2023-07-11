@@ -121,20 +121,11 @@ const ChatbotWindow: FC = () => {
                 {message.client.msg.length == 0 && message.bot.msg.length == 0 ? (
                   <></>
                 ) : message.client.msg.length != 0 && message.bot.msg.length == 0 ? (
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      justifyContent: 'start',
-                      height: 'fit-content',
-                      width: 'fit-content',
-                      backgroundColor: '#bbb',
-                      borderRadius: '5px',
-                      marginBottom: '10px',
-                      padding: '2px 6px 2px 6px',
-                    }}
-                  >
-                    <Typography fontSize={'1rem'}>Loading...</Typography>
-                  </Box>
+                  <div className="snippet" data-title="dot-flashing">
+                    <div className="stage">
+                      <div className="dot-flashing"></div>
+                    </div>
+                  </div>
                 ) : (
                   <Box
                     sx={{
