@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useState, useEffect, FC, useRef } from 'react'
 import { Box, Grid, Avatar, Typography, TextField, styled, Divider } from '@mui/material'
 import { URL } from '../../constants/url'
+import { useLanguageContext } from '@/context/languageContext'
 
 const arr = [
   {
@@ -19,6 +20,8 @@ const ChatbotWindow: FC = () => {
   const [chat, setChat] = useState(arr)
   const [userMsg, setUserMsg] = useState('')
   const [loading, setLoading] = useState(false)
+
+  const { t } = useLanguageContext()
 
   const scrollToBottom = (): void => {
     const nestedElement = document.getElementById('chatBox')
@@ -72,7 +75,7 @@ const ChatbotWindow: FC = () => {
     >
       <Box sx={{ display: 'flex', alignItems: 'center', height: '10%' }}>
         <Avatar alt="Remy Sharp" src="/images/chatbot.svg" sx={{ width: 40, height: 40 }} />
-        <Typography style={{ fontSize: '1.1rem', color: '#111' }}>Prallel Bible Books</Typography>
+        <Typography style={{ fontSize: '1.1rem', color: '#111' }}>{t('Parallel Bible Books')}</Typography>
       </Box>
       <Divider sx={{ width: '98%' }} />
       <Box id="chatBox" sx={{ height: '80%', padding: '10px 5px 10px 5px', overflow: 'auto' }}>
@@ -91,7 +94,7 @@ const ChatbotWindow: FC = () => {
               }}
             >
               <Typography fontSize={'1rem'}>
-                👋 Hi! I am Parallel Bible Books Chatbot, ask me anything about Parallel Bible Books!
+                👋 Hi! {t('I am Parallel Bible Books Chatbot, ask me anything about Parallel Bible Books!')}
               </Typography>
             </Box>
           </Box>

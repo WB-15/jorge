@@ -4,6 +4,9 @@ import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
 import Chatbot from '../chatbot/Chatbot'
 
+import { LanguageContextProvider } from '@/context/languageContext'
+import '../i18n'
+
 interface Props {
   children: ReactNode
 }
@@ -11,10 +14,12 @@ interface Props {
 const MainLayout: FC<Props> = ({ children }) => {
   return (
     <Box component="main">
-      <Header />
-      {children}
-      <Footer />
-      <Chatbot />
+      <LanguageContextProvider>
+        <Header />
+        {children}
+        <Footer />
+        <Chatbot />
+      </LanguageContextProvider>
     </Box>
   )
 }

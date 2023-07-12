@@ -10,6 +10,7 @@ import { StyledButton } from '@/components/styled-button'
 import DownloadOutlinedIcon from '@mui/icons-material/DownloadOutlined'
 import AndroidIcon from '@mui/icons-material/Android'
 import AppleIcon from '@mui/icons-material/Apple'
+import { useLanguageContext } from '@/context/languageContext'
 
 interface Exp {
   label: string
@@ -49,18 +50,20 @@ const exps: Array<Exp> = [
 ]
 
 const ExpItem: FC<ExpItemProps> = ({ item }) => {
+  const { t } = useLanguageContext()
   const { value, label } = item
   return (
     <Box sx={{ textAlign: 'center', mb: { xs: 1, md: 0, boxShadow: 3 } }}>
       <Image src={value} width={250} height={85} alt={label} />
       <Typography color="text.secondary" variant="h5">
-        {label}
+        {t(`${label}`)}
       </Typography>
     </Box>
   )
 }
 
 const HomeHero: FC = () => {
+  const { t } = useLanguageContext()
   return (
     <Box id="hero" sx={{ backgroundColor: 'background.paper', position: 'relative', pt: 4, pb: { xs: 8, md: 10 } }}>
       <Container maxWidth="lg">
@@ -96,7 +99,7 @@ const HomeHero: FC = () => {
                       backgroundColor: 'unset',
                     }}
                   >
-                    Parallel{' '}
+                    {t('Parallel')}{' '}
                     <Box
                       sx={{
                         position: 'absolute',
@@ -110,7 +113,7 @@ const HomeHero: FC = () => {
                       <img src="/images/headline-curve.svg" alt="Headline curve" />
                     </Box>
                   </Typography>
-                  Bible{' '}
+                  {t('Bible')}{' '}
                   <Typography
                     component="span"
                     sx={{
@@ -126,7 +129,7 @@ const HomeHero: FC = () => {
                       },
                     }}
                   >
-                    Books
+                    {t('Books')}
                     <svg version="1.1" viewBox="0 0 3183 3072">
                       <g id="Layer_x0020_1">
                         <path
@@ -145,17 +148,18 @@ const HomeHero: FC = () => {
                     </svg>
                   </Typography>{' '}
                   <br />
-                  <Typography style={{ fontSize: '1.9rem' }}>Parallel Bible Inc</Typography>
+                  <Typography style={{ fontSize: '1.9rem' }}>{t('Parallel Bible Inc')}</Typography>
                 </Typography>
               </Box>
               <Box sx={{ mb: 4, width: { xs: '100%', md: '70%' } }}>
                 <Typography sx={{ color: 'text.secondary', lineHeight: 1.6 }}>
-                  Parallel Bible Books, Free Download
-                  <br /> Parallel Bible Books App, the combination of the scriptures By Jorge Carrasco <br /> Parallel
-                  Bible The combination Of The scriptures the easiest way to comprehend the Bible
+                  {t('Parallel Bible Books, Free Download')}
+                  <br /> {t('Parallel Bible Books App, the combination of the scriptures By Jorge Carrasco')} <br />
+                  {t('Parallel Bible The combination Of The scriptures the easiest way to comprehend the Bible')}
                   <br />
-                  Parallel Bible by Jorge Carrasco, Where You Can Strengths, Your Faith, Love, Peace, Companion, Mercy,
-                  Hope, The Best Bible Study Tools And Daily verses,
+                  {t(
+                    'Parallel Bible by Jorge Carrasco, Where You Can Strengths, Your Faith, Love, Peace, Companion, Mercy, Hope, The Best Bible Study Tools And Daily verses...'
+                  )}
                 </Typography>
               </Box>
               <Box sx={{ '& button': { mr: 2 } }} justifyContent={'space-between'} style={{ marginBottom: '10px' }}>
@@ -167,14 +171,14 @@ const HomeHero: FC = () => {
                 {/* <ScrollLink to="download" spy={true} smooth={true} offset={0} duration={350}> */}
                 <Link href={`${exps[0].link}`} target="_blank">
                   <StyledButton color="primary" size="large" variant="outlined" startIcon={<AndroidIcon />}>
-                    Download Android App
+                    {t('Download Android App')}
                   </StyledButton>
                 </Link>
                 {/* </ScrollLink> */}
                 {/* <ScrollLink to="download" spy={true} smooth={true} offset={0} duration={350}> */}
                 <Link href={`${exps[1].link}`} target="_blank">
                   <StyledButton color="primary" size="large" variant="outlined" startIcon={<AppleIcon />}>
-                    Download iOS App
+                    {t('Download iOS App')}
                   </StyledButton>
                 </Link>
                 {/* </ScrollLink> */}
@@ -222,7 +226,7 @@ const HomeHero: FC = () => {
                   Jorge Carrasco
                 </Typography>
                 <Typography variant="subtitle1" sx={{ color: 'text.secondary', lineHeight: 1.3 }}>
-                  Parallel Bible by Jorge Carrasco
+                  {t('Parallel Bible by Jorge Carrasco')}
                 </Typography>
               </Box>
             </Box>

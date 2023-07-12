@@ -2,8 +2,10 @@ import React, { FC } from 'react'
 import Box from '@mui/material/Box'
 import { Link as ScrollLink } from 'react-scroll'
 import { navigations } from './navigation.data'
+import { useLanguageContext } from '@/context/languageContext'
 
 const Navigation: FC = () => {
+  const { t } = useLanguageContext()
   return (
     <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
       {navigations.map(({ path: destination, label }) => (
@@ -53,7 +55,7 @@ const Navigation: FC = () => {
             {/* eslint-disable-next-line */}
             <img src="/images/headline-curve.svg" alt="Headline curve" />
           </Box>
-          {label}
+          {t(`${label}`)}
         </Box>
       ))}
     </Box>

@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { Box, Typography } from '@mui/material'
+import { useLanguageContext } from '@/context/languageContext'
 
 interface Props {
   onClick?: () => void
@@ -7,6 +8,7 @@ interface Props {
 }
 
 const Logo: FC<Props> = ({ onClick, variant }) => {
+  const { t } = useLanguageContext()
   return (
     <Box onClick={onClick}>
       <Typography
@@ -14,9 +16,9 @@ const Logo: FC<Props> = ({ onClick, variant }) => {
         component="h1"
         sx={{ fontWeight: 700, '& span': { color: variant === 'primary' ? 'primary.main' : 'unset' } }}
       >
-        <span>Paralle</span>
-        <span>&nbsp;Bible</span>
-        <span>&nbsp;Books</span>
+        <span>{t('Paralle')}</span>
+        <span>&nbsp;{t('Bible')}</span>
+        <span>&nbsp;{t('Books')}</span>
       </Typography>
     </Box>
   )

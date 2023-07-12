@@ -4,6 +4,7 @@ import { Box, Grid, Typography, styled } from '@mui/material'
 import Image from 'next/image'
 import ChatbotWindow from './ChatbotWindow'
 import { Transition } from 'react-transition-group'
+import { useLanguageContext } from '@/context/languageContext'
 
 let num = 0
 
@@ -29,6 +30,7 @@ const Chatbot: FC = () => {
   const [showBox, setShowBox] = useState(false)
   const [showMsg, setShowMsg] = useState(false)
   const [windowFlag, setWindonwFlag] = useState(false)
+  const { t } = useLanguageContext()
 
   const showChatWindow = (): void => {
     num++
@@ -96,7 +98,7 @@ const Chatbot: FC = () => {
               justifyContent: 'end',
             }}
           >
-            {state !== 'exited' && <Typography fontSize={'1.8rem'}>👋 Hi!</Typography>}
+            {state !== 'exited' && <Typography fontSize={'1.8rem'}>👋 {t('Hi')}!</Typography>}
           </div>
         )}
       </Transition>
