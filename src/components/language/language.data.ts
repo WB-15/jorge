@@ -16,7 +16,7 @@ export const languageType: Language[] = [
   {
     num: 3,
     code: 'de',
-    value: 'Germany',
-    country: 'Germany',
+    value: 'German',
+    country: 'German',
   },
 ]

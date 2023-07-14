@@ -191,10 +191,10 @@ const HomeHero: FC = () => {
               sx={{
                 position: 'absolute',
                 bottom: 30,
-                left: { xs: 0, md: -150 },
+                left: { xs: 0, md: -60 },
                 boxShadow: 1,
                 borderRadius: 3,
-                px: 2,
+                px: 3,
                 py: 1.4,
                 zIndex: 1,
                 backgroundColor: 'background.paper',

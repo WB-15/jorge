@@ -6,6 +6,7 @@ import type { Navigation } from '@/interfaces/navigation'
 import { navigations as headerNavigations } from '@/components/navigation/navigation.data'
 import { FooterSectionTitle } from '@/components/footer'
 import { Link as ScrollLink } from 'react-scroll'
+import { useLanguageContext } from '@/context/languageContext'
 
 const courseMenu: Array<Navigation> = [
   {
@@ -61,10 +62,11 @@ const companyMenu: Array<Navigation> = [
 // }
 
 const FooterNavigation: FC = () => {
+  const { t } = useLanguageContext()
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} md={4}>
-        <FooterSectionTitle title="Books Services" />
+        <FooterSectionTitle title={t('Books Services')} />
         {courseMenu.map(({ label, path }, index) => (
           // <NavigationItem key={index + path} label={label} path={path} />
           <Link key={index} href={path} passHref>
@@ -73,13 +75,13 @@ const FooterNavigation: FC = () => {
               className="link-text"
               style={{ color: 'inherit', display: 'block', marginBottom: '8px' }}
             >
-              {label}
+              {t(`${label}`)}
             </a>
           </Link>
         ))}
       </Grid>
       <Grid item xs={12} md={4}>
-        <FooterSectionTitle title="Menu" />
+        <FooterSectionTitle title={t('Menu')} />
         {pageMenu.map(({ label, path }, index) => (
           <ScrollLink
             className="link-text"
@@ -91,12 +93,12 @@ const FooterNavigation: FC = () => {
             duration={350}
             style={{ color: 'inherit', display: 'block', marginBottom: '8px', cursor: 'pointer' }}
           >
-            {label}
+            {t(`${label}`)}
           </ScrollLink>
         ))}
       </Grid>
       <Grid item xs={12} md={4}>
-        <FooterSectionTitle title="About" />
+        <FooterSectionTitle title={t('About')} />
         {companyMenu.map(({ label, path }, index) => (
           // <NavigationItem key={index + path} label={label} path={path} />
           <ScrollLink
@@ -109,7 +111,7 @@ const FooterNavigation: FC = () => {
             duration={350}
             style={{ color: 'inherit', display: 'block', marginBottom: '8px', cursor: 'pointer' }}
           >
-            {label}
+            {t(`${label}`)}
           </ScrollLink>
         ))}
       </Grid>

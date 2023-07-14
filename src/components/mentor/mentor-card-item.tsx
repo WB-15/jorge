@@ -2,14 +2,15 @@ import React, { FC } from 'react'
 import Image from 'next/image'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-
 import { Mentor } from '@/interfaces/mentor'
+import { useLanguageContext } from '@/context/languageContext'
 
 interface Props {
   item: Mentor
 }
 
 const MentorCardItem: FC<Props> = ({ item }) => {
+  const { t } = useLanguageContext()
   return (
     <Box
       sx={{
@@ -42,11 +43,11 @@ const MentorCardItem: FC<Props> = ({ item }) => {
         </Box>
         <Box sx={{ mb: 2 }}>
           <Typography component="h2" variant="h4" sx={{ fontSize: '1.4rem' }}>
-            {item.name}
+            {t(`${item.name}`)}
           </Typography>
           {/* <Typography sx={{ mb: 2, color: 'text.secondary' }}>{item.category}</Typography> */}
           <Typography sx={{ mb: 2, color: 'text.secondary' }} variant="subtitle1">
-            {item.description}
+            {t(`${item.description}`)}
           </Typography>
           {/* <Box sx={{ '& img': { height: 26 } }}> */}
           {/* eslint-disable-next-line */}

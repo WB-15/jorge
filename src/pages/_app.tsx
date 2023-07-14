@@ -6,9 +6,13 @@ import { EmotionCache } from '@emotion/cache'
 import { CacheProvider } from '@emotion/react'
 import { createEmotionCache } from '@/utils'
 import { MUIProvider } from '@/providers'
+
 import 'slick-carousel/slick/slick.css'
 import '@/styles/globals.css'
 import '@/styles/react-slick.css'
+import '@/styles/chatbot.css'
+import '@/styles/books.css'
+
 import { NextPageWithLayout } from '@/interfaces/layout'
 // import 'slick-carousel/slick/slick-theme.css'
 

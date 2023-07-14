@@ -41,7 +41,7 @@ export const data: Array<Mentor> = [
     name: 'Isaiah 40;11',
     category: 'Fullstack Development',
     description:
-      'Like a shepherd who tends his flock and gathers the lambs with his arm, carries them in his supper and supports the newborn. ',
+      'Like a shepherd who tends his flock and gathers the lambs with his arm, carries them in his supper and supports the newborn.',
     company: {
       name: 'Microsoft',
       logo: '/images/companies/microsoft.png',

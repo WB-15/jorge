@@ -6,12 +6,15 @@ import Typography from '@mui/material/Typography'
 import IconButton, { iconButtonClasses } from '@mui/material/IconButton'
 import ArrowForward from '@mui/icons-material/ArrowForward'
 import { Course } from '@/interfaces/course'
+import { useLanguageContext } from '@/context/languageContext'
 
 interface Props {
   item: Course
 }
 
 const CourseCardItem: FC<Props> = ({ item }) => {
+  const { t } = useLanguageContext()
+
   return (
     <Box
       sx={{
@@ -47,7 +50,7 @@ const CourseCardItem: FC<Props> = ({ item }) => {
         </Box>
         <Box sx={{ mb: 2 }}>
           <Typography component="h2" variant="h5" sx={{ mb: 2, height: 56, overflow: 'hidden', fontSize: '1.2rem' }}>
-            {item.title}
+            {t(`${item.title}`)}
           </Typography>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Rating name="rating-course" value={item.rating} max={5} sx={{ color: '#ffce31', mr: 1 }} readOnly />
@@ -61,7 +64,7 @@ const CourseCardItem: FC<Props> = ({ item }) => {
             <Typography variant="h5" color="primary.main">
               {'$' + item.price}
             </Typography>
-            <Typography variant="h6">/ {item.level}</Typography>
+            <Typography variant="h6">/ {t(`${item.level}`)}</Typography>
           </Box>
           <IconButton
             color="primary"

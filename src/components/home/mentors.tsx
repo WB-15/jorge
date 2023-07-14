@@ -10,6 +10,7 @@ import IconArrowBack from '@mui/icons-material/ArrowBack'
 import IconArrowForward from '@mui/icons-material/ArrowForward'
 import { MentorCardItem } from '@/components/mentor'
 import { data } from './mentors.data'
+import { useLanguageContext } from '@/context/languageContext'
 
 interface SliderArrowArrow {
   onClick?: () => void
@@ -60,6 +61,7 @@ const StyledDots = styled('ul')(({ theme }) => ({
 const HomeOurMentors: FC = () => {
   const { breakpoints } = useTheme()
   const matchMobileView = useMediaQuery(breakpoints.down('md'))
+  const { t } = useLanguageContext()
 
   const sliderConfig: Settings = {
     infinite: true,
@@ -93,12 +95,12 @@ const HomeOurMentors: FC = () => {
     >
       <Container maxWidth="lg">
         <Typography variant="h1" sx={{ fontSize: 40, textAlign: 'center' }}>
-          Psalm 23
+          {t('Psalm 23')}
         </Typography>
         <Typography variant="h2" sx={{ fontSize: 20, color: '#127C71', textAlign: 'center' }}>
-          PSALM OF DAVID
+          {t('PSALM OF DAVID')}
           <br />
-          GOD WILL SHEPHERD ME
+          {t('GOD WILL SHEPHERD ME')}
         </Typography>
         <Slider {...sliderConfig}>
           {data.map((item) => (

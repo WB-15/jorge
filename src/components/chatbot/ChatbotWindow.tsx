@@ -1,6 +1,8 @@
 import axios from 'axios'
 import { useState, useEffect, FC, useRef } from 'react'
 import { Box, Grid, Avatar, Typography, TextField, styled, Divider } from '@mui/material'
+import InputAdornment from '@mui/material/InputAdornment'
+import SendIcon from '@mui/icons-material/Send'
 import { URL } from '../../constants/url'
 import { useLanguageContext } from '@/context/languageContext'
 
@@ -21,7 +23,7 @@ const ChatbotWindow: FC = () => {
   const [userMsg, setUserMsg] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const { t } = useLanguageContext()
+  const { t, i18n } = useLanguageContext()
 
   const scrollToBottom = (): void => {
     const nestedElement = document.getElementById('chatBox')
@@ -31,35 +33,41 @@ const ChatbotWindow: FC = () => {
   }
 
   const handleKeyPress = async (event: any): Promise<void> => {
-    if (event.key === 'Enter') {
-      setLoading(true)
-      chatNum++
-      arr.push({
-        client: {
-          msg: `${userMsg}`,
-        },
-        bot: {
-          msg: '',
-        },
-      })
-      setChat(arr)
-      axios
-        .post(`${URL.baseAPIUrl}/apis/chatbot/chat`, { message: userMsg })
-        .then((res) => {
-          arr[chatNum].bot.msg = res.data.text
-          setChat(arr)
-          setLoading(false)
-          scrollToBottom()
-        })
-        .catch((err) => {
-          console.log('ERR', err)
-        })
-      setUserMsg('')
+    if (event.key === 'Enter' && userMsg.length != 0) {
+      handleSubmit()
     }
   }
 
   const handleInputChange = (e: any): void => {
     setUserMsg(e.target.value)
+  }
+
+  const handleSubmit = (): void => {
+    if (userMsg.length != 0) setLoading(true)
+    chatNum++
+    arr.push({
+      client: {
+        msg: `${userMsg}`,
+      },
+      bot: {
+        msg: '',
+      },
+    })
+    setChat(arr)
+    scrollToBottom()
+    axios
+      // .post(`${URL.baseAPIUrl}/apis/chatbot/chat`, { message: userMsg, language: i18n.language })
+      .post(`/api/chat`, { message: userMsg, language: i18n.language })
+      .then((res) => {
+        arr[chatNum].bot.msg = res.data.text
+        setChat(arr)
+        setLoading(false)
+        scrollToBottom()
+      })
+      .catch((err) => {
+        console.log('ERR', err)
+      })
+    setUserMsg('')
   }
 
   return (
@@ -94,7 +102,7 @@ const ChatbotWindow: FC = () => {
               }}
             >
               <Typography fontSize={'1rem'}>
-                👋 Hi! {t('I am Parallel Bible Books Chatbot, ask me anything about Parallel Bible Books!')}
+                👋 {t('Hi')}! {t('I am Parallel Bible Books Chatbot, ask me anything about Parallel Bible Books!')}
               </Typography>
             </Box>
           </Box>
@@ -159,11 +167,18 @@ const ChatbotWindow: FC = () => {
         }}
       >
         <TextField
+          className="chatBotTextField"
           id="userMsg"
           value={userMsg}
-          style={{ width: '100%' }}
           variant="standard"
-          placeholder="Write your message here..."
+          placeholder={t('Enter your message here...')}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="start" onClick={handleSubmit}>
+                <SendIcon fontSize="small" />
+              </InputAdornment>
+            ),
+          }}
           onKeyPress={handleKeyPress}
           onChange={handleInputChange}
           disabled={loading}

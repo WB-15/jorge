@@ -1,6 +1,5 @@
-import React, { FC, useEffect, useRef } from 'react'
+import React, { FC, useEffect, useRef, forwardRef } from 'react'
 // import Image from 'next/image'
-// import { CardMedia, Card } from '@mui/material'
 import Link from '@mui/material/Link'
 import { styled } from '@mui/material/styles'
 import Box from '@mui/material/Box'
@@ -13,6 +12,12 @@ import TouchAppOutlinedIcon from '@mui/icons-material/TouchAppOutlined'
 import Image from 'next/image'
 import AndroidIcon from '@mui/icons-material/Android'
 import AppleIcon from '@mui/icons-material/Apple'
+
+import { PhotoProvider, PhotoView } from 'react-photo-view'
+import 'react-photo-view/dist/react-photo-view.css'
+import SimpleImageSlider from 'react-simple-image-slider'
+
+import { useLanguageContext } from '@/context/languageContext'
 
 interface LinearProgressProps {
   order: number
@@ -40,8 +45,33 @@ const BorderLinearProgress = styled(LinearProgress, {
   },
 }))
 
+const AndroidImgList = [
+  {
+    url: '/images/app_images/android/android1.jpg',
+  },
+  {
+    url: '/images/app_images/android/android2.jpg',
+  },
+  {
+    url: '/images/app_images/android/android3.jpg',
+  },
+  {
+    url: '/images/app_images/android/android4.jpg',
+  },
+  {
+    url: '/images/app_images/android/android5.jpg',
+  },
+  {
+    url: '/images/app_images/android/android6.jpg',
+  },
+  {
+    url: '/images/app_images/android/android7.jpg',
+  },
+]
+
 const HomeFeature: FC = () => {
   const videoEl = useRef<HTMLVideoElement>(null)
+  const { t } = useLanguageContext()
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const attemptPlay = () => {
@@ -113,7 +143,7 @@ const HomeFeature: FC = () => {
                 >
                   <Typography sx={{ fontWeight: 600, lineHeight: 1 }}>Jorge Carrasco</Typography>
                   <Typography variant="subtitle1" sx={{ mb: 1, color: 'text.disabled' }}>
-                    Parallel Bible Inc
+                    {t('Parallel Bible Inc')}
                   </Typography>
                   <Box
                     sx={{
@@ -150,7 +180,7 @@ const HomeFeature: FC = () => {
                 fontWeight: 'bold',
               }}
             >
-              Free Download{' '}
+              {t('Free Download')}{' '}
               <Typography
                 component="mark"
                 sx={{
@@ -161,7 +191,7 @@ const HomeFeature: FC = () => {
                   backgroundColor: 'unset',
                 }}
               >
-                App <br />
+                {t('App')} <br />
                 <Box
                   sx={{
                     position: 'absolute',
@@ -179,12 +209,13 @@ const HomeFeature: FC = () => {
             </Typography>
 
             <Typography sx={{ color: 'text.secondary', mb: 2, ml: { xs: 0, md: 4 } }}>
-              Parallel Bible Books, Free Download, Ranked #1 Worldwide best Parallel Bible Books App, the combination of
-              the scriptures By Jorge Carrasco
+              {t(
+                'Parallel Bible Books, Free Download, Ranked #1 Worldwide best Parallel Bible Books App, the combination of the scriptures By Jorge Carrasco'
+              )}
             </Typography>
 
             <Grid container spacing={2} sx={{ ml: { xs: 0, md: 2 } }}>
-              <Grid container item xs={12} md={6} style={{ marginBottom: '15px' }}>
+              <Grid container item xs={12} md={6} style={{ marginBottom: '15px' }} spacing={2}>
                 <Grid container item xs={6} md={6} display={'flex'} justifyContent={'center'} alignItems={'center'}>
                   <Box sx={{ display: 'flex', flex: 1, flexDirection: 'column' }}>
                     <Typography
@@ -199,7 +230,7 @@ const HomeFeature: FC = () => {
                       }}
                     >
                       <AndroidIcon style={{ paddingRight: '5px' }} />
-                      {'Android App'}
+                      {t('Android App')}
                     </Typography>
                     <Typography
                       sx={{
@@ -214,33 +245,42 @@ const HomeFeature: FC = () => {
                       variant="subtitle1"
                     >
                       <TouchAppOutlinedIcon />
-                      <Link href="#" variant="body2" style={{ marginBottom: '10px', fontSize: '1.1rem' }}>
-                        {'Click to download'}
+                      <Link
+                        href="https://play.google.com/store/apps/details?id=com.jccorporation.bibliaparalela"
+                        variant="body2"
+                        style={{ marginBottom: '10px', fontSize: '1.1rem' }}
+                        target="_blank"
+                      >
+                        {t('Click to download')}
                       </Link>
                     </Typography>
                   </Box>
-                  <Image
-                    alt="Android Scan"
-                    src="/images/QR_Code/Android_QR.jpg"
-                    width={200}
-                    height={200}
-                    style={{ borderRadius: '20px' }}
-                  ></Image>
+                  <PhotoProvider>
+                    <PhotoView src="/images/QR_Code/Android_QR.jpg">
+                      <img
+                        alt="Android Scan"
+                        src="/images/QR_Code/Android_QR.jpg"
+                        width={200}
+                        height={200}
+                        style={{ borderRadius: '20px' }}
+                      />
+                    </PhotoView>
+                  </PhotoProvider>
                   <Typography textAlign={'center'} display={'flex'} justifyContent={'center'}>
-                    Scan To Download
+                    {t('Scan To Download')}
                   </Typography>
                 </Grid>
                 <Grid container item xs={6} md={6} style={{ display: 'flex', justifyContent: 'center' }}>
                   <Image
                     alt="Android Scan"
                     src="/images/Phone/android.png"
-                    width={130}
+                    width={140}
                     height={100}
                     style={{ borderRadius: '15px', border: '5px solid #000', borderStyle: 'solid', borderWidth: '5px' }}
                   ></Image>
                 </Grid>
               </Grid>
-              <Grid container item xs={12} md={6} style={{ marginBottom: '15px' }}>
+              <Grid container item xs={12} md={6} style={{ marginBottom: '15px' }} spacing={2}>
                 <Grid container item xs={6} md={6} display={'flex'} justifyContent={'center'} alignItems={'center'}>
                   <Box sx={{ display: 'flex', flex: 1, flexDirection: 'column' }}>
                     <Typography
@@ -255,7 +295,7 @@ const HomeFeature: FC = () => {
                       }}
                     >
                       <AppleIcon style={{ paddingRight: '5px' }} />
-                      {'Apple / iOS App'}
+                      {t('iOS / Apple App')}
                     </Typography>
                     <Typography
                       sx={{
@@ -270,20 +310,29 @@ const HomeFeature: FC = () => {
                       variant="subtitle1"
                     >
                       <TouchAppOutlinedIcon />
-                      <Link href="#" variant="body2" style={{ marginBottom: '10px', fontSize: '1.1rem' }}>
-                        {'Click to download'}
+                      <Link
+                        href="https://apps.apple.com/us/app/parallel-bible-books/id1641349485"
+                        variant="body2"
+                        style={{ marginBottom: '10px', fontSize: '1.1rem' }}
+                        target="_blank"
+                      >
+                        {t('Click to download')}
                       </Link>
                     </Typography>
                   </Box>
-                  <Image
-                    alt="Android Scan"
-                    src="/images/QR_Code/Apple_QR.jpg"
-                    width={200}
-                    height={200}
-                    style={{ borderRadius: '20px' }}
-                  ></Image>
+                  <PhotoProvider>
+                    <PhotoView src="/images/QR_Code/Apple_QR.jpg">
+                      <img
+                        alt="Android Scan"
+                        src="/images/QR_Code/Apple_QR.jpg"
+                        width={200}
+                        height={200}
+                        style={{ borderRadius: '20px' }}
+                      />
+                    </PhotoView>
+                  </PhotoProvider>
                   <Typography textAlign={'center'} display={'flex'} justifyContent={'center'}>
-                    Scan To Download
+                    {t('Scan To Download')}
                   </Typography>
                 </Grid>
                 <Grid container item xs={6} md={6} style={{ display: 'flex', justifyContent: 'center' }}>
@@ -291,7 +340,7 @@ const HomeFeature: FC = () => {
                   <Image
                     alt="Android Scan"
                     src="/images/Phone/ios.png"
-                    width={130}
+                    width={140}
                     height={100}
                     style={{ borderRadius: '15px', border: '5px solid #000', borderStyle: 'solid', borderWidth: '5px' }}
                   ></Image>

@@ -17,15 +17,32 @@ interface LanguageContextProviderProps {
 export const LanguageContextProvider: React.FC<LanguageContextProviderProps> = ({ children }) => {
   const { t, i18n } = useTranslation()
   const languages: Record<string, { nativeName: string }> = {
+    bn: { nativeName: t('Bengali') },
     en: { nativeName: t('English') },
     fr: { nativeName: t('French') },
-    de: { nativeName: t('Germany') },
+    de: { nativeName: t('German') },
+    el: { nativeName: t('Greek') },
+    he: { nativeName: t('Hebrew') },
+    hi: { nativeName: t('Hindi') },
+    it: { nativeName: t('Italian') },
+    ja: { nativeName: t('Japanese') },
+    ko: { nativeName: t('Korean') },
+    ku: { nativeName: t('Kurdish') },
+    la: { nativeName: t('Latin') },
+    pl: { nativeName: t('Polish') },
+    pt: { nativeName: t('Portuguese') },
+    ru: { nativeName: t('Russian') },
+    tl: { nativeName: t('Filipino(Tagalog)') },
+    es: { nativeName: t('Spanish') },
+    tr: { nativeName: t('Turkish') },
+    uk: { nativeName: t('Ukrainian') },
+    ur: { nativeName: t('Urdu') },
   }
 
   const onClickLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const language = e.target.value
-    localStorage.setItem('language', language)
-    i18n.changeLanguage(language) // change the language
+    let selected_language = e.target.value
+    // localStorage.setItem('language', language)
+    i18n.changeLanguage(selected_language) // change the language
   }
 
   const contextValue: ILanguageContext = {

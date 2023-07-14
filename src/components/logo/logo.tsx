@@ -16,7 +16,7 @@ const Logo: FC<Props> = ({ onClick, variant }) => {
         component="h1"
         sx={{ fontWeight: 700, '& span': { color: variant === 'primary' ? 'primary.main' : 'unset' } }}
       >
-        <span>{t('Paralle')}</span>
+        <span>{t('Parallel')}</span>
         <span>&nbsp;{t('Bible')}</span>
         <span>&nbsp;{t('Books')}</span>
       </Typography>

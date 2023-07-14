@@ -12,6 +12,8 @@ import IconArrowForward from '@mui/icons-material/ArrowForward'
 import { data } from './popular-course.data'
 import { CourseCardItem } from '@/components/course'
 
+import { useLanguageContext } from '@/context/languageContext'
+
 interface SliderArrowArrow {
   onClick?: () => void
   type: 'next' | 'prev'
@@ -61,6 +63,7 @@ const StyledDots = styled('ul')(({ theme }) => ({
 const HomePopularCourse: FC = () => {
   const { breakpoints } = useTheme()
   const matchMobileView = useMediaQuery(breakpoints.down('md'))
+  const { t } = useLanguageContext()
 
   const sliderConfig: Settings = {
     infinite: true,
@@ -102,7 +105,7 @@ const HomePopularCourse: FC = () => {
               }}
             >
               <Typography variant="h1" sx={{ mt: { xs: 0, md: -5 }, fontSize: { xs: 30, md: 35 } }}>
-                Service Books
+                {t('Service Books')}
               </Typography>
             </Box>
           </Grid>

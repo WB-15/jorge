@@ -4,8 +4,10 @@ import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import { FooterNavigation, FooterSocialLinks } from '@/components/footer'
+import { useLanguageContext } from '@/context/languageContext'
 
 const Footer: FC = () => {
+  const { t } = useLanguageContext()
   return (
     <Box
       component="footer"
@@ -19,9 +21,9 @@ const Footer: FC = () => {
                 Parallel Bible Books
               </Typography>
               <Typography variant="subtitle1" sx={{ letterSpacing: 1, mb: 2 }}>
-                Parallel Bible The combination Of The scriptures the easiest way to comprehend the Bible Parallel Bible
-                by Jorge Carrasco, Where You Can Strengths, Your Faith, Love, Peace, Companion, Mercy, Hope, The Best
-                Bible Study Tools And Daily verses,
+                {t(
+                  'Parallel Bible The combination Of The scriptures the easiest way to comprehend the Bible Parallel Bible by Jorge Carrasco, Where You Can Strengths, Your Faith, Love, Peace, Companion, Mercy, Hope, The Best Bible Study Tools And Daily verses.'
+                )}
               </Typography>
               <FooterSocialLinks />
             </Box>
