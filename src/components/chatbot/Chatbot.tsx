@@ -65,7 +65,7 @@ const Chatbot: FC = () => {
     entered: { opacity: 1 },
     exiting: { opacity: 0 },
     exited: { opacity: 0 },
-    unmounted: {}, // Add "unmounted" key with an empty object
+    unmounted: {}, // Add "unmounted" key with an empty object 
   }
 
   return (
