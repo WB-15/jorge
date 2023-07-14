@@ -17,6 +17,8 @@
     "prefer-const": "error",
     "react/jsx-props-no-spreading": "off",
     "@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }],
-    "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }]
+    "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off"
   }
 }
